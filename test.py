@@ -4,7 +4,7 @@ import httplib, urllib
 import json
 deviceId = "DpwJPYEJ"
 deviceKey = "1mOUe8ZVclT0CimZ"
-def post_to_mcs(payload):  
+def post_to_mcs():  
     headers = {"Content-type": "application/json", "deviceKey": deviceKey}
     not_connected = 1
     while (not_connected):
@@ -18,7 +18,7 @@ def post_to_mcs(payload):
 	conn.request("GET", "/mcs/v2/devices/" + deviceId + "/datapoints/LED_Control/datapoints", 
  headers) 
 	response = conn.getresponse() 
-	print( response.status, response.reason, json.dumps(payload), time.strftime("%c")) 
+	print( response.status, response.reason, time.strftime("%c")) 
 	data = response.read() 
 	conn.close() 
 
